@@ -12,7 +12,7 @@ namespace CIDemo_Team13
         {
             checked // For at håndtere overflow
             {
-                return a + b;
+                return a + c;
             }
         }
 
