@@ -1,7 +1,14 @@
+name: Publish Workflow
+
+on:
+  push:
+    branches:
+      - master
+
 publish:
   needs: build
   runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/master'
+  if: github.ref == 'refs/heads/main'
 
   steps:
     - uses: actions/checkout@v4
@@ -9,7 +16,10 @@ publish:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
 
     - name: Publish
       run: dotnet publish -c Release -o ./publish
