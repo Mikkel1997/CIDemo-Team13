@@ -8,7 +8,7 @@ class Program
         bool exit = false;
 
         Console.WriteLine("Velkommen til lommeregneren! 😊");
-        Console.WriteLine("Vi Releaser direkte i master :)");
+        Console.WriteLine("Den her gang virker det");
 
         while (!exit)
         {
