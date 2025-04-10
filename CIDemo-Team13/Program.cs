@@ -7,7 +7,8 @@ class Program
         Calculator calculator = new Calculator();
         bool exit = false;
 
-        Console.WriteLine("Velkommen til lommeregneren! 😊"); // Tilføjet smiley her
+        Console.WriteLine("Velkommen til lommeregneren! 😊");
+        Console.WriteLine("Vi Releaser direkte i master :)");
 
         while (!exit)
         {
