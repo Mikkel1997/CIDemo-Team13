@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include=".github\workflows\build-test.yml" />
+    <Compile Remove=".github\**" />
+    <EmbeddedResource Remove=".github\**" />
+    <None Remove=".github\**" />
   </ItemGroup>
 
 </Project>
