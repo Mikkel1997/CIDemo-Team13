@@ -9,9 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove=".github\**" />
-    <EmbeddedResource Remove=".github\**" />
-    <None Remove=".github\**" />
+    <None Include=".github\**" />
   </ItemGroup>
 
 </Project>
