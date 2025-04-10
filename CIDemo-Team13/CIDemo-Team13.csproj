@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include=".github\workflows\build-test.yml" />
+    <None Include=".github\**" />
   </ItemGroup>
 
 </Project>

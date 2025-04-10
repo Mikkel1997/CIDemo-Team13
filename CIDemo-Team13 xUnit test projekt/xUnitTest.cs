@@ -262,4 +262,90 @@ public class CalculatorTests
         Assert.IsType<DivideByZeroException>(exception);
     }
     #endregion
+    #region Power Tests
+    [Fact]
+    public void Power_PositiveBaseAndExponent_ReturnsCorrectResult()
+    {
+        // Arrange
+        double a = 2;
+        double b = 3;
+        double expected = 8;
+
+        // Act
+        double result = _calculator.Power(a, b);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact]
+    public void Power_BaseZeroAndPositiveExponent_ReturnsZero()
+    {
+        // Arrange
+        double a = 0;
+        double b = 5;
+        double expected = 0;
+
+        // Act
+        double result = _calculator.Power(a, b);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact]
+    public void Power_BaseZeroAndNonPositiveExponent_ThrowsArgumentException()
+    {
+        // Arrange
+        double a = 0;
+        double b = -1;
+
+        // Act & Assert
+        var exception = Record.Exception(() => _calculator.Power(a, b));
+        Assert.IsType<ArgumentException>(exception);
+        Assert.Equal("Ugyldig eksponentiation: 0^0 eller 0 til negativ eksponent", exception.Message);
+    }
+    #endregion
+
+    #region SquareRoot Tests
+    [Fact]
+    public void SquareRoot_PositiveNumber_ReturnsCorrectResult()
+    {
+        // Arrange
+        double a = 16;
+        double expected = 4;
+
+        // Act
+        double result = _calculator.SquareRoot(a);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact]
+    public void SquareRoot_Zero_ReturnsZero()
+    {
+        // Arrange
+        double a = 0;
+        double expected = 0;
+
+        // Act
+        double result = _calculator.SquareRoot(a);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact]
+    public void SquareRoot_NegativeNumber_ThrowsArgumentException()
+    {
+        // Arrange
+        double a = -4;
+
+        // Act & Assert
+        var exception = Record.Exception(() => _calculator.SquareRoot(a));
+        Assert.IsType<ArgumentException>(exception);
+        Assert.Equal("Kvadratroden af et negativt tal er ikke defineret i reelle tal", exception.Message);
+    }
+    #endregion
 }
